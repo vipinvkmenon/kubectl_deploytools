@@ -7,10 +7,12 @@ RUN wget -nc -P /tmp/bitnami/pkg/cache/ https://downloads.bitnami.com/files/stac
     echo "6dbb8a52c0a709f5e979b8e143c86a4c41a69c848e14425e8953805b06e3603d  /tmp/bitnami/pkg/cache/kubectl-1.13.4-0-linux-amd64-debian-10.tar.gz" | sha256sum -c - && \
     tar -zxf /tmp/bitnami/pkg/cache/kubectl-1.13.4-0-linux-amd64-debian-10.tar.gz -P --transform 's|^[^/]*/files|/opt/bitnami|' --wildcards '*/files' && \
     rm -rf /tmp/bitnami/pkg/cache/kubectl-1.13.4-0-linux-amd64-debian-10.tar.gz
+
+RUN apt-get update && apt-get upgrade -y 
+RUN apt-get install apache2-utils gnupg2 jq -y
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64 
 RUN add-apt-repository ppa:rmescandon/yq
-RUN apt-get update && apt-get upgrade -y 
-RUN apt-get install apache2-utils yq -y
+RUN apt-get yq -y
 RUN rm -r /var/lib/apt/lists /var/cache/apt/archives
 
 RUN chmod +x /opt/bitnami/kubectl/bin/kubectl
