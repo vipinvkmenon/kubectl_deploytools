@@ -14,7 +14,7 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64 
 RUN add-apt-repository ppa:rmescandon/yq
 RUN apt-get update && apt-get upgrade -y 
-RUN apt-get yq -y
+RUN apt-get install yq -y
 RUN rm -r /var/lib/apt/lists /var/cache/apt/archives
 
 RUN chmod +x /opt/bitnami/kubectl/bin/kubectl
