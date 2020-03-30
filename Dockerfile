@@ -16,9 +16,6 @@ ENV BITNAMI_APP_NAME="kubectl" \
     BITNAMI_IMAGE_VERSION="1.13.4-debian-10-r61" \
     PATH="/opt/bitnami/kubectl/bin:$PATH"latest
 
-RUN apt-get update && apt-get upgrade -y
-RUN apt-get install apache2-utils
-
 USER 1001
 ENTRYPOINT [ "kubectl" ]
 CMD [ "--help" ]
