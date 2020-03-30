@@ -1,5 +1,5 @@
 FROM docker.io/bitnami/minideb:buster
-LABEL maintainer "Bitnami <containers@bitnami.com>"
+
 
 # Install required system packages and dependencies
 RUN install_packages ca-certificates curl procps sudo unzip wget
