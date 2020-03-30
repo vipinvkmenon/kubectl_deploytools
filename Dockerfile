@@ -8,7 +8,7 @@ RUN wget -nc -P /tmp/bitnami/pkg/cache/ https://downloads.bitnami.com/files/stac
     tar -zxf /tmp/bitnami/pkg/cache/kubectl-1.13.4-0-linux-amd64-debian-10.tar.gz -P --transform 's|^[^/]*/files|/opt/bitnami|' --wildcards '*/files' && \
     rm -rf /tmp/bitnami/pkg/cache/kubectl-1.13.4-0-linux-amd64-debian-10.tar.gz
 RUN apt-get update && apt-get upgrade -y 
-RUN apt-get install apache2-utils
+RUN apt-get install apache2-utils -y
 RUN rm -r /var/lib/apt/lists /var/cache/apt/archives
 
 RUN chmod +x /opt/bitnami/kubectl/bin/kubectl
