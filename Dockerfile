@@ -20,8 +20,7 @@ RUN rm -r /var/lib/apt/lists /var/cache/apt/archives
 RUN chmod +x /opt/bitnami/kubectl/bin/kubectl
 ENV BITNAMI_APP_NAME="kubectl" \
     BITNAMI_IMAGE_VERSION="1.13.4-debian-10-r61" \
-    PATH="/opt/bitnami/kubectl/bin:$PATH"latest
+    PATH="/opt/bitnami/kubectl/bin:/bin:$PATH"latest
 
 USER 1001
-ENTRYPOINT [ "kubectl" ]
-CMD [ "--help" ]
+CMD [ "bash" ]
