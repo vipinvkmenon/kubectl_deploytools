@@ -9,9 +9,11 @@ RUN wget -nc -P /tmp/bitnami/pkg/cache/ https://downloads.bitnami.com/files/stac
     rm -rf /tmp/bitnami/pkg/cache/kubectl-1.13.4-0-linux-amd64-debian-10.tar.gz
 
 RUN apt-get update && apt-get upgrade -y 
-RUN apt-get install apache2-utils gnupg2 jq -y
+RUN apt-get install apache2-utils gnupg2 jq software-properties-common -y
+RUN apt-get update && apt-get upgrade -y 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64 
 RUN add-apt-repository ppa:rmescandon/yq
+RUN apt-get update && apt-get upgrade -y 
 RUN apt-get yq -y
 RUN rm -r /var/lib/apt/lists /var/cache/apt/archives
 
